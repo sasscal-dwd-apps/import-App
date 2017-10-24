@@ -1,5 +1,5 @@
 # import-App
-Import data from different sources into CLIMSOFT db
+*Import data from different sources into CLIMSOFT db*
 
 The Application import-App has been developed under the SASSCAL initiative (http://www.sasscal.org) through the Climate Task "Historical and ongoing climate data management" to facilitate the import of data from different sources into any CLIMSOFT database. CLIMSOFT (http://www.climsoft.org) is a Climate Data Management System (CDMS) developed in Africa and installed in the meteorological services of the SASSCAL-partners Angola, Botswana and Zambia.
 
