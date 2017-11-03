@@ -1,0 +1,92 @@
+<a name="odbc"></a>
+
+# Conexão a um banco de dados
+
+Se o ACD-App vai ser usado para interagir com um banco de dados CLIMSOFT, é necessário configurar uma conexão com esse banco de dados. Isto tem que ser feito através da *Open Database Connectivity* Tool (ODBC), uma API de middleware de programação standar (Application Programming Interface) para acessar sistemas de gerenciamento de banco de dados (DBMS). O ODBC consegue a independência do DBMS usando um driver ODBC como uma camada de tradução entre o aplicativo e o DBMS.
+
+O aplicativo usa funções ODBC por meio de um gerenciador de driver ODBC com o qual ele está vinculado eo driver passa a consulta para o DBMS. Um driver ODBC pode ser considerado como análogo a um driver de impressora ou outro driver, fornecendo um conjunto padrão de funções para o aplicativo a ser usado e implementando funcionalidade específica DBMS ([Wikipedia, 2017](#referências)).
+
+O ODBC permitirá que o ACD-App identifique e conecte-se ao banco de dados de interesse.
+Portanto, uma conexão ODBC deve ser configurada. Para fazer isso, é necessário seguir estes passos:
+
+* Certifique-se de que tem direitos de administrador, uma vez que a Ferramenta de Administração ODBC só pode ser aberta pelo administrador.
+* Abra o "Administrador ODBC" por:
+
+    + Clicando no botão de menu 'Iniciar' (canto inferior esquerdo da tela), `Painel de controle`, depois`Ferramentas administrativas` e depois `Fontes de dados (ODBC)` (Figura 1), ou
+    + Executando o arquivo chamado: `odbcad32.exe` localizado na pasta:` C:/Windows/SysWOW64/ `
+
+```{r, out.width = "400px", echo = FALSE}
+knitr::include_graphics(file.path(fig.path, "open_ODBC_tool.png"))
+```
+<center>Figura 2. Seleção de 'Ferramentas Administrativas' e `Fontes de Dados (ODBC)`</center><br>
+
+    Uma vez aberta, uma Janela que se parece com a Figura 3 será exibida.
+
+```{r, out.width = "400px", echo = FALSE}
+knitr::include_graphics(file.path(fig.path, "ODBC_window.png"))
+```
+<center>Figura 3. Janela de Fontes de Dados (ODBC)</center><br>
+
+* Clique na opção `Adicionar ...` e selecione um dos drivers listados.
+
+## Conectar-se ao MS-Access db
+Para se conectar ao `MS-Access db`, siga estes passos:
+
+* Selecione o driver `Microsoft Access Driver (*.mdb, *.accdb)` e pressione `Finish`. (Figura 4)
+
+```{r, out.width = "400px", echo = FALSE}
+knitr::include_graphics(file.path(fig.path, "create_new_data_source.png"))
+```
+<center>Figura 4. Janela 'Criar nova fonte de dados'</center><br>
+
+* Na nova Janela (Figura 5), dê um Data Source Name (DSN) à conexão e, se desejar, adicione uma descrição de tal conexão.
+Certifique-se de que o DSN contém a palavra **CLIMSOFT** (por exemplo, CLIMSOFT_db). Depois disso, selecione o banco de dados para conectar-se pressionando o botão `Database: Select`.
+
+```{r, out.width = "400px", echo = FALSE}
+knitr::include_graphics(file.path(fig.path, "setup_ms-access_db.jpg"))
+```
+<center>Figura 5. Janela para configurar o banco de dados ODBC para MS-Access</center><br>
+
+* Uma nova janela (Figura 6) pede a localização do banco de dados. Navege através de seu computador para encontrar a localização do banco de dados (tipicamente sob `C:/Program Files (x86)/CLIMSOFT/dbase/`). Uma vez selecionado o banco de dados, clique em `OK`.
+
+```{r, out.width = "400px", echo = FALSE}
+knitr::include_graphics(file.path(fig.path, "select_ms-access_db.jpg"))
+```
+<center>Figura 6. Janela para selecionar o banco de dados MS-Access</center><br>
+
+* Agora é necessário configurar o `System database`, uma vez que as bases de dados CLIMSOFT se juntam a um grupo de trabalho chamado` climsoft`. Portanto, é necessário localizar o arquivo `climsoft.mdw` que define esse grupo de trabalho. Para isso, selecione a opção `Database` no campo` System Database`. Em seguida, pressione o botão `Sistema de banco de dados ...`. Este arquivo está normalmente no caminho `C:/Windows/System32 /` ou `C:/Windows /SysWOW64`.
+
+```{r, out.width = "400px", echo = FALSE}
+knitr::include_graphics(file.path(fig.path, "system_db.jpg"))
+```
+<center>Figura 7. Selecione o banco de dados do sistema</center><br>
+
+* Uma vez selecionado o arquivo, pressione `OK` para salvar as alterações e para fechar a janela` Selecionar banco de dados do sistema` e pressione `OK` novamente para salvar as alterações e fechar a janela` Instalação do ODBC Microsoft Access`.
+
+## Conectar-se ao mariadb db
+
+Para ligar a um `mariadb db`:
+
+* Selecione o driver `MySQL ODBC X.X ANSI Driver`, onde` X.X` se refere à versão do MySQL ODBC (por exemplo, `5.5`). Se o driver MySQL não estiver disponível no computador, é possível baixá-lo em <http://dev.mysql.com/downloads/connector/odbc/>.
+```{r, out.width = "400px", echo = FALSE}
+knitr::include_graphics(file.path(fig.path, "odbc_mysql01.png"))
+```
+<center>Figura 8. Exemplo de um driver ODBC do MySQL</center><br>
+
+* Cumprir a janela do MySQL Connector (Figura 9) com as informações necessárias.
+    + Nome da fonte de dados (DSN): Nome da conexão. Certifique-se de que o DSN contém a palavra **CLIMSOFT** (por exemplo, CLIMSOFT_db).
+    + Descrição: Uma breve descrição da conexão (é opcional),
+    + Servidor: Nome do servidor onde o banco de dados está localizado. Geralmente é `localhost`.
+    + Porta: Porta na qual o servidor `mariadb` está instalado.
+    + Utilizador: Nome de utilizador que tem de ser utilizado para ligar ao `mariadb db`. (Por exemplo, `root`).
+    + Senha: Senha do usuário.
+    + Banco de dados: Selecione a base de dados para a qual a conexão deve ser feita.
+
+* É possível testar a ligação premindo o botão `Test`. Uma mensagem aparecerá para dizer se esta conexão foi bem-sucedida.
+
+
+```{r, out.width = "400px", echo = FALSE}
+knitr::include_graphics(file.path(fig.path, "odbc_mysql.png"))
+```
+<center>Figura 9. Janela onde selecionar o banco de dados mariadb</center><br>
+

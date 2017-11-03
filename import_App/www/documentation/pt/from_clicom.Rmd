@@ -1,0 +1,20 @@
+## A partir de CLICOM
+Esta opção está disponível para o Serviço Meteorológico da Zâmbia (ZMD). Ele permitirá ao usuário importar dados do CLICOM para um banco de dados CLIMSOFT (`acesso` ou `mariadb`).
+
+Para realizar a importação, o usuário deve seguir estes passos:
+
+1. Selecione o código do elemento. O usuário deve saber previamente qual elemento deseja importar (por exemplo, Precipitação). Cada elemento possui um número de código no CLIMSOFT. Este número é aquele que deve ser digitado neste campo. Por exemplo, o código de `precipitação` é `5`.
+
+
+2. Navegue para encontrar o(s) arquivo(s) '.DLY' que contém os dados. Esses arquivos são aqueles recuperados do CLICOM. Uma vez que o(s) arquivo(s) é(são) encontrado(s), selecione-os(eles) e clique em "Abrir".
+
+3. Selecione o banco de dados de destino: Selecione o banco de dados onde os dados devem ser importados. O usuário deve definir primeiro qual o tipo de banco de dados que é (`access` ou` mariadb`) e, em seguida, selecionar um banco de dados no menu suspenso `Data Name Source (DNS)`. Observe que a lista de DNS refere-se às conexões ODBC disponíveis. Portanto, o banco de dados deve ser previamente definido na ferramenta *Open Database Connectivity* (consulte a Seção [Conexão a um banco de dados](# odbc))
+
+4. Uma vez que os passos 1 a 3 são completados, um novo botão chamado `Iniciar Importação` aparece. Clique nela para iniciar a importação dos dados.
+
+5. Aguarde até que a importação seja completada (pode levar algum tempo, dependendo da quantidade de dados)
+
+```{r, out.width = "400px", echo = FALSE}
+knitr::include_graphics(file.path(fig.path, "from_clicom.PNG"))
+```
+<center>Figura 13. Exemplo de uma importação a partir de arquivos de CLICOM. </center><br>

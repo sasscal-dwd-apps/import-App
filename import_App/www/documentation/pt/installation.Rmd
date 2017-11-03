@@ -1,0 +1,59 @@
+# Instalação e desinstalação
+
+
+
+## Instalar
+
+O aplicativo é armazenado como um arquivo `.zip` para reduzir o tamanho dele. Existem dois arquivos `.zip` diferentes disponíveis:
+
+* `import_compact_small.zip` (aproximadamente 6 Mb): contém as informações mínimas para instalar o aplicativo. O usuário **requererá conexão à Internet** para completar a instalação, uma vez que o aplicativo terá que baixar os pacotes de R de um repositório R-CRAN (normalmente o repositório: <http://cran.us.r-project.org>)
+
+* `import_compact_large.zip` (aproximadamente 62 Mb): Contém todos os Pacotes de R e software necessários para a instalação do aplicativo. O usuário **não exigirá conexão à Internet**.
+
+Para prosseguir com a instalação, o usuário deve seguir estes passos:
+
+1. **Descompacte o arquivo**: o usuário deve descompactar o arquivo `import_compact_small.zip` ou `import_compact_large.zip` e colocar o conteúdo em qualquer pasta (por exemplo `Ambiente de Trabalho`, `Documentos` ou qualquer outra).
+
+2. **Abra a pasta import_standalone**: esta pasta contém todas as informações para instalar e executar o aplicativo.
+
+3. **Edite o arquivo import.bat**: clique com o botão direito do mouse nesse arquivo e selecione `Editar`. Um editor abrirá o arquivo `.bat` e o usuário poderá modificar o caminho onde `R` está localizado. O caminho padrão é:
+    ```{r, echo=FALSE}
+cat(file.path("C:", "Program Files", "R", 
+              paste0("R-", rversion), "bin", "i386"))
+```
+
+    onde `R-X.X.X` é a versão de` R`, e `i386` contém a versão` 32bit` de `R`.
+     Uma vez que as alterações foram feitas, salve as alterações e feche o Editor.
+
+4. **Execute import.bat:** Clique duas vezes no arquivo. Uma janela de comando será exibida.
+
+5. **Selecione o Serviço Meteorológico**: O usuário será convidado a entrar no serviço meteorológico (`DMS`, `INAMET`, `ZMD` ou `others`). Esta informação deve ser inserida apenas uma vez.
+
+```{r, out.width = "400px", echo = FALSE}
+knitr::include_graphics(file.path(fig.path, "select_metService.png"))
+```
+<center>Figura 1. Selecione o Serviço Meteorológico</center><br>
+
+6. **Selecione idioma**: O usuário será convidado a entrar o idioma em que deseja trabalhar (`english` ou `portuguese`). Esta informação deve ser inserida apenas uma vez.
+
+7. **Baixe pacotes:** Se o usuário usar o arquivo `import_compact_small.zip`, o aplicativo baixará automaticamente os R-Packages necessários de um repositório R-CRAN. Caso contrário, o aplicativo conterá já os pacotes necessários. Os pacotes serão salvos em:
+    ```{r, echo=FALSE}
+cat(RpkgsDir)
+```
+
+    > _**Nota:** Esta etapa pode demorar alguns minutos. Por favor, seja paciente._
+
+8. **Desembalar e instalar bibliotecas:** Uma vez que os pacotes são salvos localmente, o aplicativo procederá a descompactar e instalar os pacotes como bibliotecas. Essas bibliotecas estarão localizadas em:
+    ```{r, echo=FALSE}
+cat(RlibsDir)
+```
+
+    > _**Nota:** Esta etapa pode demorar alguns minutos. Por favor, seja paciente._
+
+Uma vez finalizado o processo de instalação, o `import-App` será aberto automaticamente.
+
+O aplicativo pode ser interrompido a qualquer momento ao fechar a janela de comando. Para voltar a executar o aplicativo, execute o arquivo `import.bat` novamente. O `import_App` irá então aparecer automaticamente.
+
+## Desinstalação
+
+Para desinstalar o aplicativo, basta remover a pasta `import_standalone`.

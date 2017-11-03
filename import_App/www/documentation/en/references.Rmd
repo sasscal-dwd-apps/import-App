@@ -1,0 +1,10 @@
+<a name="references"></a>
+
+# References
+
+RStudio (2017). *Easy web applications in R*. <https://www.rstudio.com/products/shiny/> [last accessed: 11.04.2017]
+
+Wickham (2017). *R Packages*. <http://r-pkgs.had.co.nz/intro.html> [last accessed: 12.04.2017]
+
+Wikipedia (2017). *Open Database Connectivity*. <https://en.wikipedia.org/wiki/Open_Database_Connectivity> [last accessed: 11.04.2017]
+

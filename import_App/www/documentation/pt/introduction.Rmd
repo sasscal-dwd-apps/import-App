@@ -1,0 +1,8 @@
+# Introdução
+O aplicativo *import-App* foi desenvolvido no âmbito da iniciativa SASSCAL (http://www.sasscal.org) através da tarefa climática *Historical and ongoing climate data management* para facilitar a importação de dados de diferentes fontes em qualquer banco de dados CLIMSOFT. CLIMSOFT (<http://www.climsoft.org>) é um Sistema de Gerenciamento de Dados Climáticos (CDMS) desenvolvido em África e instalado nos serviços meteorológicos de Angola, Botswana e Zâmbia.
+
+A ferramenta foi desenvolvida sob Shiny, um pacote de código aberto R que fornece uma estrutura web poderosa para a construção de aplicativos da Web usando R (<https://shiny.rstudio.com/>). Shiny ajuda a transformar as análises de dados em aplicações web interativas sem requerer conhecimento HTML, CSS ou JavaScript ([RStudio, 2017](#referências))
+
+Este manual dará uma visão geral do aplicativo, explicando como instalá-lo, como executá-lo e como usá-lo.
+
+

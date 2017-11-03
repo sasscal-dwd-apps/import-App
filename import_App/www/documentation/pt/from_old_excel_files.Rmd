@@ -1,0 +1,24 @@
+## De arquivos MS-Excel antigos
+Esta opção está disponível para o Serviço Meteorológico Nacional de Angola (Instituto Nacional de Meteorologia e Geofísica, INAMET). Permitirá ao usuário importar dados de arquivos Excel anteriores usados como formulários de entrada de chave no INAMET, em um banco de dados CLIMSOFT (`acesso` ou `mariadb`).
+
+Para realizar a importação, o usuário deve seguir estes passos:
+
+1. Escolha o inventário. O usuário deve navegar para o inventário que contém informações de metadados sobre a estação quais dados devem ser importados para o CLIMSOFT. Este inventário é um arquivo MS-Excel.
+
+2. Escolha os formulários. O usuário deve procurar e selecionar o (s) arquivo (s) MS-Excel com os formulários antigos. Existem dois tipos de formularios: diário e mensal (ver Figura 14)
+
+```{r, out.width = "400px", echo = FALSE}
+knitr::include_graphics(file.path(fig.path, "inamet_form_templates.png"))
+```
+<center>Figure 14. Screenshot dos modelos de formulário diários (esquerda) e mensais (diretos) usados no passado no INAMET</center><br>
+
+3. Selecione o banco de dados de destino: Selecione o banco de dados onde os dados devem ser importados. O usuário deve definir primeiro qual o tipo de banco de dados que é (`access` ou` mariadb`) e, em seguida, selecionar um banco de dados no menu suspenso `Data Name Source (DNS)`. Observe que a lista de DNS refere-se às conexões ODBC disponíveis. Portanto, o banco de dados deve ser previamente definido na ferramenta *Open Database Connectivity* (consulte a Seção [Conexão a um banco de dados](# odbc))
+
+4. Uma vez que os passos 1 a 3 são completados, um novo botão chamado `Iniciar Importação` aparece. Clique nela para iniciar a importação dos dados.
+
+5. Aguarde até que a importação seja completada (pode levar algum tempo, dependendo da quantidade de dados)
+
+```{r, out.width = "400px", echo = FALSE}
+knitr::include_graphics(file.path(fig.path, "from_old_excel_files.PNG"))
+```
+<center>Figure 15. Exemplo de uma importação dos formularios antigos do INAMET. </center><br>

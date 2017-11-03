@@ -1,0 +1,17 @@
+## From a key-entry form
+This option is available for all the meteorological services. It will allow the user to import data from a key-entry form into a CLIMSOFT database (either `access` or `mariadb`).
+
+To accomplish the import the user has to follow these steps:
+
+1. Browse to find the MS-Excel files containing the data key entered. Once the file is found, selected and click "Open".
+
+2. Select the database of destination: Select the database where the data has to be imported. The user has to define first which kind of database it is (`access` or `mariadb`) and then select one database from the drop down menu `Data Name Source (DNS)`. Note that the list of DNS refers to the ODBC connections available. Therefore, the database has to be previously defined in the *Open Database Connectivity* Tool (see Section [Connection to a database](#odbc))
+
+3. Once step 1 & 2 are completed, a new button called `Load Data` pops-up. Make click on it. Once it is clicked, the data will be shown on the browser, so that the user can make a quick check of the data. If the data are not correct, please make the corrections in the original key-entry form through the `keyEntry_App`.
+
+4. If the data are fine, then the user can click on `Start Import`. Wait until the import is completed (may take some time, depending on the amount of data)
+
+```{r, out.width = "400px", echo = FALSE}
+knitr::include_graphics(file.path(fig.path, "from_keyEntry.PNG"))
+```
+<center>Figure 12. Example of an Import from a key entry form.</center><br>

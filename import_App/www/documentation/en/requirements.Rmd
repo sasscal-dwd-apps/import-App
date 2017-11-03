@@ -1,0 +1,23 @@
+# Requirements
+
+## Software requirements
+The following software is required for the installation of the App:
+
+* Windows 7 or higher
+* Java SE Runtime Environment 7 or higher (<http://www.oracle.com/technetwork/java/javase/downloads/index.html>)
+*	R v3.2.1 or higher (<https://cran.r-project.org/bin/windows/base/>)
+*	RStudio v0.99.467 or higher (<https://www.rstudio.com/products/rstudio/download/>)
+*	Rtools v.3.2 or higher (<https://cran.r-project.org/bin/windows/Rtools/>)
+* A web-browser, such as Mozilla-Firefox, Chrome or Internet Explorer (v.11 or higher)
+
+## R-Packages
+The *import_App* requires a number of R-packages to run properly. The package is the fundamental unit of shareable code in R. A package bundles together code, data, documentation, etc. and is easy to share with others ([Wickham, 2017](#references)). They are available on-line and will be installed automatically by the App. The packages required by the App are:
+
+```{r,  warning = FALSE, echo = FALSE}
+cat(paste0(pkgs[[1]], collapse = "\n"))
+```
+
+These packages are saved in the following path:
+```{r, echo=FALSE}
+cat(RpkgsDir)
+```

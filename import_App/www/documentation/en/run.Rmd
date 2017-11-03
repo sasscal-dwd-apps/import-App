@@ -1,0 +1,20 @@
+# Running the import-App
+
+To run the application it is necessary to have *administrator rights* in the computer. For run the App as administrator, right click on the file `import.bat` and select `Run as administrator`. After a few seconds, a web browser opens. The import-App interface appears directly on the web-browser (see Figure 10) and the application is ready to use!
+
+Once the App is running, it can also be accessed from other computers connected to the Intranet. To access to the import-App from another PC, open a browser (e.g. Mozilla) and type the following Address:
+
+```{r, echo = FALSE}
+x <- system("ipconfig", intern=TRUE)
+z <- x[grep("IPv4", x)]
+ip <- gsub(".*? ([[:digit:]])", "\\1", z)
+
+cat(paste0("http://",ip, ":3181"))
+```
+
+```{r, out.width = "800px", echo = FALSE}
+knitr::include_graphics(file.path(fig.path, "data_source.png"))
+```
+<center>Figure 10. Data source available</center><br>
+
+The options available for the import depend on the Met Service selected during the installation process. These options are explained in detail in the next section.

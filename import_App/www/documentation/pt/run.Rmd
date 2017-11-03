@@ -1,0 +1,20 @@
+# Execução do aplicativo
+
+Para executar o aplicativo, é necessário ter **direitos de administrador** no computador. Para executar o aplicativo como administrador, clique com o botão direito do mouse no arquivo `import.bat` e selecione `Executar como administrador`. Após alguns segundos, um navegador da Web é aberto. A interface import-App aparece diretamente no navegador da Web (veja a Figura 10) e a aplicação está pronta para usar!
+
+Uma vez que a aplicação está em execução, também pode ser acessada a partir de outros computadores conectados à Intranet. Para acessar a importação-App a partir de outro PC, abra um navegador (por exemplo, Mozilla) e digite o seguinte Endereço:
+
+```{r, echo = FALSE}
+x <- system("ipconfig", intern=TRUE)
+z <- x[grep("IPv4", x)]
+ip <- gsub(".*? ([[:digit:]])", "\\1", z)
+
+cat(paste0("http://",ip, ":3181"))
+```
+
+```{r, out.width = "800px", echo = FALSE}
+knitr::include_graphics(file.path(fig.path, "data_source.png"))
+```
+<center>Figura 10. Fonte de dados disponível</center><br>
+
+As opções disponíveis para importação dependem do serviço Met selecionado durante o processo de instalação. Essas opções são explicadas detalhadamente na próxima seção.

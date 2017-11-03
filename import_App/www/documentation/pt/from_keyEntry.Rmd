@@ -1,0 +1,17 @@
+## A partir de um formulário
+Esta opção está disponível para todos os serviços meteorológicos. Isso permitirá ao usuário importar dados de um formulário  para um banco de dados CLIMSOFT (`acess` ou `mariadb`).
+
+Para realizar a importação, o usuário deve seguir estes passos:
+
+1. Navegue para encontrar os arquivos MS-Excel contendo os dados. Uma vez que o arquivo seja encontrado, selecione e clique em "Abrir".
+
+2. Selecione o banco de dados de destino: Selecione o banco de dados onde os dados devem ser importados. O usuário deve definir primeiro qual o tipo de banco de dados que é (`access` ou `mariadb`) e, em seguida, selecionar um banco de dados no menu suspenso `Data Name Source (DNS)`. Observe que a lista de DNS refere-se às conexões ODBC disponíveis. Portanto, o banco de dados deve ser previamente definido na ferramenta *Open Database Connectivity* (consulte a Seção [Conexão a um banco de dados](# odbc))
+
+3. Uma vez concluídos os passos 1 e 2, um novo botão chamado `Load Data` aparece. Clique nela. Uma vez que é clicado, os dados serão exibidos no navegador, para que o usuário possa fazer uma verificação rápida dos dados. Se os dados não estiverem corretos, faça as correções no formulário original de entrada de chave através do `keyEntry_App`.
+
+4. Se os dados estiverem bem, o usuário pode clicar em `Iniciar  Importação`. Aguarde até que a importação seja concluída (pode levar algum tempo, dependendo da quantidade de dados)
+
+```{r, out.width = "400px", echo = FALSE}
+knitr::include_graphics(file.path(fig.path, "from_keyEntry.PNG"))
+```
+<center>Figura 12. Exemplo de uma importação de um formulário de entrada de chave.</center><br>

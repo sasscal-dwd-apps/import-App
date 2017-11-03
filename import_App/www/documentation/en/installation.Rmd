@@ -1,0 +1,57 @@
+# Install and uninstall
+
+## Install
+
+The Application is stored as a `.zip` file to reduce the size of it. There are two different `.zip` files available:
+
+* `import_compact_small.zip` (approx. 6 Mb): Contains the minimum information to install the App. The user will **require Internet connection** to complete the installation, since the App will have to download the R-Packages from a R-CRAN repository (typically the repository: <http://cran.us.r-project.org>)
+
+* `import_compact_large.zip` (approx. 62 Mb): Contains all the R-Packages and software required for the installation of the App. The user will **not require Internet connection**.
+
+To proceed with the installation, the user has to follow these steps:
+
+1. **Unzip file**: The user has to unzip the `import_compact_small.zip`or `import_compact_large.zip` file and place the content in any folder (e.g. `Desktop`, `Documents` or any other). 
+
+2. **Open import_standalone folder**: This folder contains all the information to install and run the App.
+
+3. **Edit file import.bat**: Right click on that file and select `Edit`. An editor will open the `.bat` file and the user can then modify the path where `R` is located. The default path is:
+    ```{r, echo=FALSE}
+cat(file.path("C:", "Program Files", "R", 
+              paste0("R-", rversion), "bin", "i386"))
+```
+
+    where `R-X.X.X` is the version of `R`, and `i386` contains the `32bit` version of `R`.
+    Once the changes have been done, please save the changes and close the Editor.
+
+4. **Run import.bat:** Double click on the file. A command window will pop-up.
+
+5. **Select Meteorological Service**: The user will be asked to enter the meteorological service (either `DMS`, `INAMET`, `ZMD` or `others`). This information has to be entered only once.
+
+```{r, out.width = "400px", echo = FALSE}
+knitr::include_graphics(file.path(fig.path, "select_metService.png"))
+```
+<center>Figure 1. Select the Meteorological Service</center><br>
+
+6. **Select Language**: The user will be asked to enter language (either `english` or `portuguese`). This information has to be entered only once.
+
+7. **Download packages:** If the user uses the file `import_compact_small.zip`, then the App will download the required R-Packages automatically from an R-CRAN repository. Otherwise, the App will contain already the required packages. The packages will be saved in:
+    ```{r, echo=FALSE}
+cat(RpkgsDir)
+```
+
+    > _**Note:** This step may take some minutes. Please be patient._
+
+8. **Unpack and install libraries:** Once the packages are saved locally, the App will proceed to unpack and install the packages as libraries. These libraries will be located in:
+    ```{r, echo=FALSE}
+cat(RlibsDir)
+```
+
+    > _**Note:** This step may take some minutes. Please be patient._
+
+Once the installation process is finished, the `import-App` will open automatically. 
+
+The App can be stopped at any time by closing the command window. To re-run the App, execute the file `import.bat` again. The `import_App` will then pop-up automatically. 
+
+## Uninstall
+
+To uninstall the App, just remove the `import_standalone` folder. 

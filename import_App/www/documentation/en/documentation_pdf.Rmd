@@ -1,0 +1,88 @@
+---
+title: "Import into CLIMSOFT (import-App)"
+subtitle: "Version 1.0"
+author: "Rafael Posada"
+date: "31st August 2017"
+output:
+  pdf_document:
+    fig_caption: true
+    toc: true
+    number_sections: true
+always_allow_html: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.align="center")
+options(warn = -1, message = F)
+suppressMessages(library(shiny))
+suppressMessages(library(uuid))
+abbr <- "en"
+#language <- "english"
+fig.path <- file.path("figures")
+print(getwd())
+rversion_prev <- R.Version()
+rversion <- paste0(rversion_prev$major, ".", rversion_prev$minor)
+source("../functions/pkgs.required.R")
+pkgs <- pkgs.required()
+pkgs2 <- data.frame(Nr = c(1:length(pkgs[[1]])), packs = pkgs[[1]])
+RpkgsDir <- file.path("import_standalone", "import_App", "www", "R_pkgs", "win.binary") 
+RlibsDir <- file.path("import_standalone", "import_App", "www", "libraries", rversion) 
+```
+
+<!-- Set up "columns" section -->  
+<style>
+  .col2 {
+    columns: 2 200px;         /* number of columns and width in pixels*/
+    -webkit-columns: 2 200px; /* chrome, safari */
+    -moz-columns: 2 200px;    /* firefox */
+  }
+  .col3 {
+    columns: 3 100px;
+    -webkit-columns: 3 100px;
+    -moz-columns: 3 100px;
+  }
+   .col4 {
+    columns: 4 80px;
+    -webkit-columns: 4 80px;
+    -moz-columns: 4 80px;
+  }
+</style>
+
+\pagebreak
+
+```{r child = 'introduction.Rmd'}
+```
+
+```{r child = 'requirements.Rmd'}
+```
+
+```{r child = 'installation.Rmd'}
+```
+
+```{r child = 'connect_odbc.Rmd'}
+```
+
+```{r child = 'run.Rmd'}
+```
+
+# Import options
+```{r child = 'from_database.Rmd'}
+```
+
+```{r child = 'from_keyEntry.Rmd'}
+```
+
+```{r child = 'from_clicom.Rmd'}
+```
+
+```{r child = 'from_old_excel_files.Rmd'}
+```
+
+
+```{r child = 'references.Rmd'}
+```
+

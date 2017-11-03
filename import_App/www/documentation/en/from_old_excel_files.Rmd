@@ -1,0 +1,24 @@
+## From old MS-Excel files
+This option is available for the National Meteorological Service of Angola (Instituto Nacional de Meteorologia e Geofísica, INAMET). It will allow the user to import data from old Excel files used as key entry forms at INAMET, into a CLIMSOFT database (either `access` or `mariadb`).
+
+To accomplish the import the user has to follow these steps:
+
+1. Choose the inventory. The user has to browse for the inventory that contains metadata information about the station which data should be imported into CLIMSOFT. This inventory is an MS-Excel file.  
+
+2. Choose the forms. The user has to browse and select the MS-Excel file(s) with the old forms. There are two types of forms: daily and monthly (see Figure 14)
+
+```{r, out.width = "400px", echo = FALSE}
+knitr::include_graphics(file.path(fig.path, "inamet_form_templates.png"))
+```
+<center>Figure 14. Screenshot of the (left) monthly and (right) daily form templates used in the past at INAMET</center><br>
+
+3. Select the database of destination: Select the database where the data has to be imported. The user has to define first which kind of database it is (`access` or `mariadb`) and then select one database from the drop down menu `Data Name Source (DNS)`. Note that the list of DNS refers to the ODBC connections available. Therefore, the database has to be previously defined in the *Open Database Connectivity* Tool (see Section [Connection to a database](#odbc))
+
+4. Once step 1 to 3 are completed, a new button called `Start Import` pops-up. Make click on it to start the import of the data.
+
+5. Wait until the import is completed (may take some time, depending on the amount of data)
+
+```{r, out.width = "400px", echo = FALSE}
+knitr::include_graphics(file.path(fig.path, "from_old_excel_files.PNG"))
+```
+<center>Figure 15. Example of an Import from the old forms of INAMET. </center><br>

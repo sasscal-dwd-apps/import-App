@@ -1,0 +1,20 @@
+## From CLICOM
+This option is available for the Zambia Meteorological Service (ZMD). It will allow the user to import data from CLICOM into a CLIMSOFT database (either `access` or `mariadb`).
+
+To accomplish the import the user has to follow these steps:
+
+1. Select the Element Code. The user has to know previously which element wants to be imported (e.g. Precipitation). Each element has a code number in CLIMSOFT. This number is the one that has to be entered in this field. As an example, the code of `precipitation` is `5`.
+
+
+2. Browse to find the '.DLY' file(s) containing the data. These files are those retrieved from CLICOM.  Once the file(s) is(are) found, selected it(them) and click "Open".
+
+3. Select the database of destination: Select the database where the data has to be imported. The user has to define first which kind of database it is (`access` or `mariadb`) and then select one database from the drop down menu `Data Name Source (DNS)`. Note that the list of DNS refers to the ODBC connections available. Therefore, the database has to be previously defined in the *Open Database Connectivity* Tool (see Section [Connection to a database](#odbc))
+
+4. Once step 1 to 3 are completed, a new button called `Start Import` pops-up. Make click on it to start the import of the data.
+
+5. Wait until the import is completed (may take some time, depending on the amount of data)
+
+```{r, out.width = "400px", echo = FALSE}
+knitr::include_graphics(file.path(fig.path, "from_clicom.PNG"))
+```
+<center>Figure 13. Example of an Import from CLICOM files. </center><br>

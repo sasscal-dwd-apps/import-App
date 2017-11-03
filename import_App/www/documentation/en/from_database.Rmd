@@ -1,0 +1,17 @@
+## From a database
+This option is available for all the meteorological services. It will allow the user to import data from a CLIMSOFT database (either `access` or `mariadb`) into another CLIMSOFT database (either `access` or `mariadb`).
+
+To accomplish the import the user has to follow these steps:
+
+1. Select the database of origin: Select the database where the data to import are stored. Select which type of database is (`access` or `mariadb`) and then select one database from the drop down menu `Data Name Source (DNS)`. Please note that the list of DNS refers to the ODBC connections available. Therefore, the database has to be previously defined in the *Open Database Connectivity* Tool (see Section [Connection to a database](#odbc))
+
+2. Select the database of destination: Select the database where the data has to be imported. The user has to define first which kind of database it is (`access` or `mariadb`) and then select one database from the drop down menu `Data Name Source (DNS)`. Again, the list of DNS refers to the ODBC connections available. Therefore, the database has to be previously defined in the *Open Database Connectivity* Tool (see Section [Connection to a database](#odbc))
+
+3. Once step 1 & 2 are completed, a new button called `Start Import` pops-up. Make click on it. 
+
+4. Wait until the import is completed (may take some time, depending on the amount of data)
+
+```{r, out.width = "400px", echo = FALSE}
+knitr::include_graphics(file.path(fig.path, "from_database.PNG"))
+```
+<center>Figure 1. Example of an Import from a CLIMSOFT database to another. </center><br>
